@@ -1,0 +1,40 @@
+* {
+  font-family: cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(88, 88, 88);
+}
+
+h1,
+p {
+  background-color: darkgray;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+#item-input {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/* JS CSS Modifications */
+li {
+  user-select: none;
+  margin-bottom: 5px;
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+li.completed {
+  color: rgb(27, 27, 27);
+  text-decoration: line-through;
+}
