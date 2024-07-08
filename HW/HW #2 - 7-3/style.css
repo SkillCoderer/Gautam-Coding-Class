@@ -1,100 +1,120 @@
+/* Importing a Google Font */
 @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
+/* Custom colors for the progress bar and steps */
 :root {
-  --line-border-fill: #3498db;
-  --line-border-empty: #383838;
+  --line-border-fill: #3498db; /* Blue color for the progress line and active steps */
+  --line-border-empty: gray; /* Grey color for the empty line and inactive steps */
 }
 
+/* Apply box-sizing to include padding and border in element's total width and height */
 * {
   box-sizing: border-box;
 }
 
+/* Body styling */
 body {
-  background-color: #f1f1f1;
-  font-family: "Muli", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  background-color: #f1f1f1; /* Light grey background */
+  font-family: "Muli", sans-serif; /* Apply Muli font */
+  display: flex; /* Enable flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  height: 100vh; /* Full height of the viewport */
+  overflow: hidden; /* Hide scrollbars */
+  margin: 0; /* Remove default margin */
 }
 
+/* Container for the progress steps and buttons */
 .container {
-  text-align: center;
+  text-align: center; /* Center text inside the container */
 }
 
+/* Container for the progress bar and steps */
 .progress-container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 30px;
-  max-width: 100%;
-  width: 350px;
+  display: flex; /* Arrange steps in a row */
+  justify-content: space-between; /* Evenly distribute space between steps */
+  position: relative; /* Allows for positioning the progress line */
+  margin-bottom: 30px; /* Space below the progress bar */
+  max-width: 100%; /* Ensure it doesn't exceed 100% width */
+  width: 350px; /* Fixed width for the container */
 }
 
-.progress-container::before {
-  content: "";
-  background-color: var(--line-border-empty);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  z-index: -1;
+/* The grey line behind the progress bar */
+.progress-containerx::before {
+  content: ""; /* Creates a pseudo-element */
+  background-color: var(
+    --line-border-empty
+  ); /* Grey color for the empty line */
+  position: absolute; /* Absolute positioning within the progress container */
+  top: 50%; /* Center vertically */
+  left: 0; /* Align to the left */
+  transform: translateY(-50%); /* Adjust to align perfectly in the middle */
+  height: 4px; /* Thickness of the line */
+  width: 100%; /* Full width of the container */
+  z-index: -1; /* Place behind other elements */
 }
 
+/* The blue progress line that fills as steps are completed */
 .progress {
-  background-color: var(--line-border-fill);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
+  background-color: var(
+    --line-border-fill
+  ); /* Blue color for the filled line */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 0; /* Start from the left */
+  transform: translateY(-50%); /* Align perfectly in the middle */
+  height: 4px; /* Thickness of the line */
+  width: 0%; /* Initial width, increases as steps are completed */
+  z-index: -1; /* Place behind the steps */
+  transition: 0.4s ease; /* Smooth transition effect when the width changes */
 }
 
+/* Styling for each step (circle) */
 .circle {
-  background-color: #f1f1f1;
-  color: #e2e2e2;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--line-border-empty);
-  transition: 0.4s ease;
+  background-color: #f1f1f1; /* Light grey background */
+  color: #e2e2e2; /* Light grey text */
+  border-radius: 50%; /* Make the element round */
+  height: 30px; /* Fixed height */
+  width: 30px; /* Fixed width */
+  display: flex; /* Enable flexbox for centering text inside */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  border: 3px solid var(--line-border-empty); /* Grey border */
+  transition: 0.4s ease; /* Smooth transition effect for border color change */
 }
 
+/* Active step styling */
 .circle.active {
-  border-color: var(--line-border-fill);
+  border-color: var(--line-border-fill); /* Blue border for active steps */
 }
 
+/* Button styling */
 .btn {
-  background-color: var(--line-border-fill);
-  color: #fff;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 8px 30px;
-  margin: 5px;
-  font-size: 14px;
+  background-color: var(--line-border-fill); /* Blue background for buttons */
+  color: #fff; /* White text color */
+  border: 0; /* No border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-family: inherit; /* Inherit font from parent element */
+  padding: 8px 30px; /* Padding inside the button */
+  margin: 5px; /* Small margin around buttons */
+  font-size: 14px; /* Font size */
 }
 
+/* Button click effect */
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Slightly shrink the button when clicked */
 }
 
+/* Button focus effect */
 .btn:focus {
-  outline: 0;
+  outline: 0; /* Remove the default focus outline */
 }
 
+/* Disabled button styling */
 .btn:disabled {
-  background-color: var(--line-border-empty);
-  cursor: not-allowed;
+  background-color: var(
+    --line-border-empty
+  ); /* Grey background for disabled buttons */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }
